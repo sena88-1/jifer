@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:io';
 import 'package:image_picker/image_picker.dart';
+import 'home_page.dart';
 
 class RegistrationForm extends StatefulWidget {
   final bool isAprendiz;
@@ -391,8 +392,8 @@ class _RegistrationFormState extends State<RegistrationForm> {
       'foto': _image?.path,
     };
 
-    // Here you would typically send this data to your backend
-    // For now, we'll just show a success dialog
+    // Aquí normalmente enviarías los datos al backend
+    // Para esta implementación, mostraremos un mensaje de éxito y navegaremos al HomePage
     showDialog(
       context: context,
       builder: (BuildContext context) {
@@ -402,8 +403,18 @@ class _RegistrationFormState extends State<RegistrationForm> {
           actions: [
             TextButton(
               onPressed: () {
-                // Navigate back to the first screen (or login)
-                Navigator.of(context).popUntil((route) => route.isFirst);
+                // Cerrar el diálogo
+                Navigator.of(context).pop();
+                
+                // Navegar a la página de inicio con los datos del usuario
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const HomePage(
+                      // Podrías pasar datos del usuario aquí si es necesario
+                    ),
+                  ),
+                );
               },
               child: const Text('OK'),
             ),
