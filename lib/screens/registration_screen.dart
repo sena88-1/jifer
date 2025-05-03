@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:sena/screens/registration.form.dart';
 
-
 class RegistrationScreen extends StatefulWidget {
-  const RegistrationScreen({Key? key}) : super(key: key);
+  const RegistrationScreen({super.key});
 
   @override
   State<RegistrationScreen> createState() => _RegistrationScreenState();
@@ -12,14 +11,15 @@ class RegistrationScreen extends StatefulWidget {
 class _RegistrationScreenState extends State<RegistrationScreen> {
   final Color senaGreen = const Color(0xFF39A900);
   bool isAprendiz = true;
-  
+
   // Form controllers
   final TextEditingController _nombresController = TextEditingController();
   final TextEditingController _apellidosController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _telefonoController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-  final TextEditingController _confirmPasswordController = TextEditingController();
+  final TextEditingController _confirmPasswordController =
+      TextEditingController();
 
   @override
   void dispose() {
@@ -49,10 +49,13 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                     padding: const EdgeInsets.symmetric(horizontal: 20),
                     child: _buildToggleButton(context),
                   ),
-                  
+
                   // Registration type selection
                   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 20,
+                      vertical: 30,
+                    ),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -70,7 +73,10 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                                 height: 60,
                                 decoration: BoxDecoration(
                                   shape: BoxShape.circle,
-                                  border: Border.all(color: Colors.white, width: 4),
+                                  border: Border.all(
+                                    color: Colors.white,
+                                    width: 4,
+                                  ),
                                   color: isAprendiz ? senaGreen : Colors.white,
                                 ),
                               ),
@@ -99,7 +105,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                             ],
                           ),
                         ),
-                        
+
                         // Administrador option
                         GestureDetector(
                           onTap: () {
@@ -114,7 +120,10 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                                 height: 60,
                                 decoration: BoxDecoration(
                                   shape: BoxShape.circle,
-                                  border: Border.all(color: Colors.white, width: 4),
+                                  border: Border.all(
+                                    color: Colors.white,
+                                    width: 4,
+                                  ),
                                   color: !isAprendiz ? senaGreen : Colors.white,
                                 ),
                               ),
@@ -146,7 +155,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                       ],
                     ),
                   ),
-                  
+
                   // Curved bottom edge
                   Container(
                     height: 50,
@@ -161,7 +170,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 ],
               ),
             ),
-            
+
             // Form section
             Stack(
               alignment: Alignment.center,
@@ -180,26 +189,43 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                     ),
                   ),
                 ),
-                
+
                 // Form fields
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 30),
                   child: Column(
                     children: [
                       const SizedBox(height: 20),
-                      _buildTextField('Nombres', controller: _nombresController),
+                      _buildTextField(
+                        'Nombres',
+                        controller: _nombresController,
+                      ),
                       const SizedBox(height: 20),
-                      _buildTextField('Apellidos', controller: _apellidosController),
+                      _buildTextField(
+                        'Apellidos',
+                        controller: _apellidosController,
+                      ),
                       const SizedBox(height: 20),
                       _buildTextField('E-mail', controller: _emailController),
                       const SizedBox(height: 20),
-                      _buildTextField('Teléfono', controller: _telefonoController),
+                      _buildTextField(
+                        'Teléfono',
+                        controller: _telefonoController,
+                      ),
                       const SizedBox(height: 20),
-                      _buildTextField('Contraseña', isPassword: true, controller: _passwordController),
+                      _buildTextField(
+                        'Contraseña',
+                        isPassword: true,
+                        controller: _passwordController,
+                      ),
                       const SizedBox(height: 20),
-                      _buildTextField('Repetir Contraseña', isPassword: true, controller: _confirmPasswordController),
+                      _buildTextField(
+                        'Repetir Contraseña',
+                        isPassword: true,
+                        controller: _confirmPasswordController,
+                      ),
                       const SizedBox(height: 40),
-                      
+
                       // Seguir button
                       SizedBox(
                         width: double.infinity,
@@ -209,15 +235,16 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => RegistrationForm(
-                                  isAprendiz: isAprendiz,
-                                  userData: {
-                                    'nombres': _nombresController.text,
-                                    'apellidos': _apellidosController.text,
-                                    'email': _emailController.text,
-                                    'telefono': _telefonoController.text,
-                                  },
-                                ),
+                                builder:
+                                    (context) => RegistrationForm(
+                                      isAprendiz: isAprendiz,
+                                      userData: {
+                                        'nombres': _nombresController.text,
+                                        'apellidos': _apellidosController.text,
+                                        'email': _emailController.text,
+                                        'telefono': _telefonoController.text,
+                                      },
+                                    ),
                               ),
                             );
                           },
@@ -269,7 +296,9 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 padding: const EdgeInsets.symmetric(vertical: 12),
                 decoration: BoxDecoration(
                   color: Colors.grey[300],
-                  borderRadius: const BorderRadius.horizontal(left: Radius.circular(48)),
+                  borderRadius: const BorderRadius.horizontal(
+                    left: Radius.circular(48),
+                  ),
                 ),
                 alignment: Alignment.center,
                 child: const Text(
@@ -289,7 +318,9 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               padding: const EdgeInsets.symmetric(vertical: 12),
               decoration: BoxDecoration(
                 color: senaGreen,
-                borderRadius: const BorderRadius.horizontal(right: Radius.circular(48)),
+                borderRadius: const BorderRadius.horizontal(
+                  right: Radius.circular(48),
+                ),
               ),
               alignment: Alignment.center,
               child: const Text(
@@ -307,16 +338,17 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
     );
   }
 
-  Widget _buildTextField(String hint, {bool isPassword = false, required TextEditingController controller}) {
+  Widget _buildTextField(
+    String hint, {
+    bool isPassword = false,
+    required TextEditingController controller,
+  }) {
     return TextField(
       controller: controller,
       obscureText: isPassword,
       decoration: InputDecoration(
         hintText: hint,
-        hintStyle: const TextStyle(
-          color: Colors.black54,
-          fontSize: 16,
-        ),
+        hintStyle: const TextStyle(color: Colors.black54, fontSize: 16),
         border: const UnderlineInputBorder(
           borderSide: BorderSide(color: Colors.grey),
         ),

@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:sena/screens/registration_screen.dart';
 import 'package:sena/screens/home_page.dart';
 
-
 class LoginScreen extends StatefulWidget {
-  const LoginScreen({Key? key}) : super(key: key);
+  const LoginScreen({super.key});
 
   @override
   State<LoginScreen> createState() => _LoginScreenState();
@@ -12,7 +11,7 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   final Color senaGreen = const Color(0xFF39A900);
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,7 +39,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     // Toggle button
                     _buildToggleButton(context),
                     const SizedBox(height: 40),
-                    
+
                     // Welcome heading
                     Text(
                       '¡Bienvenido(a) al Centro de convivencia Internado SENA!',
@@ -52,7 +51,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       textAlign: TextAlign.center,
                     ),
                     const SizedBox(height: 40),
-                    
+
                     // Email field
                     TextField(
                       decoration: InputDecoration(
@@ -64,12 +63,14 @@ class _LoginScreenState extends State<LoginScreen> {
                         focusedBorder: UnderlineInputBorder(
                           borderSide: BorderSide(color: senaGreen),
                         ),
-                        contentPadding: const EdgeInsets.symmetric(vertical: 12),
+                        contentPadding: const EdgeInsets.symmetric(
+                          vertical: 12,
+                        ),
                       ),
                       style: const TextStyle(fontSize: 18),
                     ),
                     const SizedBox(height: 24),
-                    
+
                     // Password field
                     TextField(
                       obscureText: true,
@@ -82,44 +83,46 @@ class _LoginScreenState extends State<LoginScreen> {
                         focusedBorder: UnderlineInputBorder(
                           borderSide: BorderSide(color: senaGreen),
                         ),
-                        contentPadding: const EdgeInsets.symmetric(vertical: 12),
+                        contentPadding: const EdgeInsets.symmetric(
+                          vertical: 12,
+                        ),
                       ),
                       style: const TextStyle(fontSize: 18),
                     ),
                     const SizedBox(height: 40),
-                    
-                    // Login button   
-                   SizedBox(
-  width: double.infinity,
-  child: ElevatedButton(
-    onPressed: () {
-      Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => const HomePage(),
-        ),
-      );
-    },
-    style: ElevatedButton.styleFrom(
-      backgroundColor: senaGreen,
-      foregroundColor: Colors.white,
-      padding: const EdgeInsets.symmetric(vertical: 16),
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(50),
-      ),
-    ),
-    child: const Text(
-      'Iniciar Sesión',
-      style: TextStyle(
-        fontSize: 22,
-        fontWeight: FontWeight.bold,
-      ),
-    ),
-  ),
-),
+
+                    // Login button
+                    SizedBox(
+                      width: double.infinity,
+                      child: ElevatedButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const HomePage(),
+                            ),
+                          );
+                        },
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: senaGreen,
+                          foregroundColor: Colors.white,
+                          padding: const EdgeInsets.symmetric(vertical: 16),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(50),
+                          ),
+                        ),
+                        child: const Text(
+                          'Iniciar Sesión',
+                          style: TextStyle(
+                            fontSize: 22,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    ),
 
                     const SizedBox(height: 40),
-                    
+
                     // Forgot password link
                     GestureDetector(
                       onTap: () {
@@ -157,7 +160,9 @@ class _LoginScreenState extends State<LoginScreen> {
               padding: const EdgeInsets.symmetric(vertical: 12),
               decoration: BoxDecoration(
                 color: senaGreen,
-                borderRadius: const BorderRadius.horizontal(left: Radius.circular(48)),
+                borderRadius: const BorderRadius.horizontal(
+                  left: Radius.circular(48),
+                ),
               ),
               alignment: Alignment.center,
               child: const Text(
@@ -186,7 +191,9 @@ class _LoginScreenState extends State<LoginScreen> {
                 padding: const EdgeInsets.symmetric(vertical: 12),
                 decoration: BoxDecoration(
                   color: Colors.grey[300],
-                  borderRadius: const BorderRadius.horizontal(right: Radius.circular(48)),
+                  borderRadius: const BorderRadius.horizontal(
+                    right: Radius.circular(48),
+                  ),
                 ),
                 alignment: Alignment.center,
                 child: const Text(
