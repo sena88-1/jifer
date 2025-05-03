@@ -8,10 +8,10 @@ class RegistrationForm extends StatefulWidget {
   final Map<String, String> userData;
 
   const RegistrationForm({
-    Key? key, 
+    super.key,
     required this.isAprendiz,
     required this.userData,
-  }) : super(key: key);
+  });
 
   @override
   State<RegistrationForm> createState() => _RegistrationFormState();
@@ -22,7 +22,8 @@ class _RegistrationFormState extends State<RegistrationForm> {
   String? _selectedEtnia;
   String? _selectedGenero;
   String? _selectedTipoDocumento;
-  final TextEditingController _numeroDocumentoController = TextEditingController();
+  final TextEditingController _numeroDocumentoController =
+      TextEditingController();
   File? _image;
   final ImagePicker _picker = ImagePicker();
 
@@ -33,7 +34,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
       maxHeight: 1000,
       imageQuality: 80,
     );
-    
+
     if (pickedFile != null) {
       setState(() {
         _image = File(pickedFile.path);
@@ -52,7 +53,9 @@ class _RegistrationFormState extends State<RegistrationForm> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          widget.isAprendiz ? 'Registro de Aprendiz' : 'Registro de Administrador',
+          widget.isAprendiz
+              ? 'Registro de Aprendiz'
+              : 'Registro de Administrador',
           style: const TextStyle(color: Colors.white),
         ),
         backgroundColor: const Color(0xFF39A900),
@@ -76,7 +79,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
               ),
             ),
           ),
-          
+
           // Form content
           SingleChildScrollView(
             padding: const EdgeInsets.all(20.0),
@@ -95,7 +98,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
                         const Text(
                           'Información Básica',
                           style: TextStyle(
-                            fontSize: 18, 
+                            fontSize: 18,
                             fontWeight: FontWeight.bold,
                             color: Color(0xFF39A900),
                           ),
@@ -109,7 +112,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
                     ),
                   ),
                 ),
-                
+
                 // Discapacidades dropdown
                 const Text(
                   'Discapacidades',
@@ -135,18 +138,24 @@ class _RegistrationFormState extends State<RegistrationForm> {
                         _selectedDiscapacidad = newValue;
                       });
                     },
-                    items: <String>['Ninguna', 'Visual', 'Auditiva', 'Motriz', 'Otra']
-                        .map<DropdownMenuItem<String>>((String value) {
-                      return DropdownMenuItem<String>(
-                        value: value,
-                        child: Text(value),
-                      );
-                    }).toList(),
+                    items:
+                        <String>[
+                          'Ninguna',
+                          'Visual',
+                          'Auditiva',
+                          'Motriz',
+                          'Otra',
+                        ].map<DropdownMenuItem<String>>((String value) {
+                          return DropdownMenuItem<String>(
+                            value: value,
+                            child: Text(value),
+                          );
+                        }).toList(),
                   ),
                 ),
-                
+
                 const SizedBox(height: 20),
-                
+
                 // Etnia dropdown
                 const Text(
                   'Etnia',
@@ -172,18 +181,24 @@ class _RegistrationFormState extends State<RegistrationForm> {
                         _selectedEtnia = newValue;
                       });
                     },
-                    items: <String>['Mestizo', 'Indígena', 'Afrodescendiente', 'Caucásico', 'Otro']
-                        .map<DropdownMenuItem<String>>((String value) {
-                      return DropdownMenuItem<String>(
-                        value: value,
-                        child: Text(value),
-                      );
-                    }).toList(),
+                    items:
+                        <String>[
+                          'Mestizo',
+                          'Indígena',
+                          'Afrodescendiente',
+                          'Caucásico',
+                          'Otro',
+                        ].map<DropdownMenuItem<String>>((String value) {
+                          return DropdownMenuItem<String>(
+                            value: value,
+                            child: Text(value),
+                          );
+                        }).toList(),
                   ),
                 ),
-                
+
                 const SizedBox(height: 20),
-                
+
                 // Género dropdown
                 const Text(
                   'Género',
@@ -209,18 +224,23 @@ class _RegistrationFormState extends State<RegistrationForm> {
                         _selectedGenero = newValue;
                       });
                     },
-                    items: <String>['Masculino', 'Femenino', 'No binario', 'Prefiero no decir']
-                        .map<DropdownMenuItem<String>>((String value) {
-                      return DropdownMenuItem<String>(
-                        value: value,
-                        child: Text(value),
-                      );
-                    }).toList(),
+                    items:
+                        <String>[
+                          'Masculino',
+                          'Femenino',
+                          'No binario',
+                          'Prefiero no decir',
+                        ].map<DropdownMenuItem<String>>((String value) {
+                          return DropdownMenuItem<String>(
+                            value: value,
+                            child: Text(value),
+                          );
+                        }).toList(),
                   ),
                 ),
-                
+
                 const SizedBox(height: 20),
-                
+
                 // Tipo de Documento dropdown
                 const Text(
                   'Tipo de Documento',
@@ -246,18 +266,23 @@ class _RegistrationFormState extends State<RegistrationForm> {
                         _selectedTipoDocumento = newValue;
                       });
                     },
-                    items: <String>['DNI', 'Pasaporte', 'Cédula', 'Otro']
-                        .map<DropdownMenuItem<String>>((String value) {
-                      return DropdownMenuItem<String>(
-                        value: value,
-                        child: Text(value),
-                      );
-                    }).toList(),
+                    items:
+                        <String>[
+                          'DNI',
+                          'Pasaporte',
+                          'Cédula',
+                          'Otro',
+                        ].map<DropdownMenuItem<String>>((String value) {
+                          return DropdownMenuItem<String>(
+                            value: value,
+                            child: Text(value),
+                          );
+                        }).toList(),
                   ),
                 ),
-                
+
                 const SizedBox(height: 20),
-                
+
                 // Número de Documento text field
                 const Text(
                   'Número de Documento',
@@ -276,9 +301,9 @@ class _RegistrationFormState extends State<RegistrationForm> {
                   ),
                   keyboardType: TextInputType.number,
                 ),
-                
+
                 const SizedBox(height: 40),
-                
+
                 // Adjuntar Foto button
                 Center(
                   child: Column(
@@ -290,20 +315,34 @@ class _RegistrationFormState extends State<RegistrationForm> {
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(30),
                           ),
-                          padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 15),
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 40,
+                            vertical: 15,
+                          ),
                         ),
                         child: Row(
                           mainAxisSize: MainAxisSize.min,
                           children: [
                             const Text(
                               'Adjuntar Foto',
-                              style: TextStyle(fontSize: 20, color: Colors.white),
+                              style: TextStyle(
+                                fontSize: 20,
+                                color: Colors.white,
+                              ),
                             ),
                             const SizedBox(width: 10),
                             if (_image == null) ...[
-                              const Icon(Icons.close, color: Colors.red, size: 24),
+                              const Icon(
+                                Icons.close,
+                                color: Colors.red,
+                                size: 24,
+                              ),
                             ] else ...[
-                              const Icon(Icons.check, color: Colors.green, size: 24),
+                              const Icon(
+                                Icons.check,
+                                color: Colors.green,
+                                size: 24,
+                              ),
                             ],
                           ],
                         ),
@@ -316,9 +355,9 @@ class _RegistrationFormState extends State<RegistrationForm> {
                     ],
                   ),
                 ),
-                
+
                 const SizedBox(height: 40),
-                
+
                 // Registrate button
                 Center(
                   child: ElevatedButton(
@@ -333,7 +372,10 @@ class _RegistrationFormState extends State<RegistrationForm> {
                         borderRadius: BorderRadius.circular(30),
                         side: const BorderSide(color: Colors.black, width: 1),
                       ),
-                      padding: const EdgeInsets.symmetric(horizontal: 60, vertical: 15),
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 60,
+                        vertical: 15,
+                      ),
                     ),
                     child: const Text(
                       'Registrate',
@@ -341,7 +383,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
                     ),
                   ),
                 ),
-                
+
                 const SizedBox(height: 60),
               ],
             ),
@@ -353,19 +395,20 @@ class _RegistrationFormState extends State<RegistrationForm> {
 
   void _completeRegistration() {
     // Validate form
-    if (_selectedTipoDocumento == null || 
+    if (_selectedTipoDocumento == null ||
         _numeroDocumentoController.text.isEmpty ||
         _selectedGenero == null ||
         _selectedEtnia == null ||
         _selectedDiscapacidad == null) {
-      
       // Show error dialog
       showDialog(
         context: context,
         builder: (BuildContext context) {
           return AlertDialog(
             title: const Text('Información Incompleta'),
-            content: const Text('Por favor complete todos los campos del formulario.'),
+            content: const Text(
+              'Por favor complete todos los campos del formulario.',
+            ),
             actions: [
               TextButton(
                 onPressed: () {
@@ -399,20 +442,23 @@ class _RegistrationFormState extends State<RegistrationForm> {
       builder: (BuildContext context) {
         return AlertDialog(
           title: const Text('Registro Exitoso'),
-          content: const Text('Su información ha sido registrada correctamente.'),
+          content: const Text(
+            'Su información ha sido registrada correctamente.',
+          ),
           actions: [
             TextButton(
               onPressed: () {
                 // Cerrar el diálogo
                 Navigator.of(context).pop();
-                
+
                 // Navegar a la página de inicio con los datos del usuario
                 Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const HomePage(
-                      // Podrías pasar datos del usuario aquí si es necesario
-                    ),
+                    builder:
+                        (context) => const HomePage(
+                          // Podrías pasar datos del usuario aquí si es necesario
+                        ),
                   ),
                 );
               },
